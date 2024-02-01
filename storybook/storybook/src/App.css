@@ -1,0 +1,209 @@
+/* CSS Reset */
+
+@font-face {
+  font-family: 'NotoSansJP';
+  src: url('./fonts/NotoSansJP-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Button */
+
+.sb-button {
+  font-family: 'NotoSansJP';
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 81px;
+  height: 36px;
+  border-radius: 6px;
+  transition: 0.3s ease background-color;
+}
+
+/* Button colors */
+
+.sb-button.default {
+  color: #3F3F3F;
+  background: #E0E0E0;
+  box-shadow: 0px 2px 3px rgba(51, 51, 51, 0.2);
+}
+
+.sb-button.default:hover {
+  color: #3F3F3F;
+  background: #AEAEAE;
+}
+
+.sb-button.default.disabled {
+  color: #9E9E9E;
+  background: #E0E0E0;
+}
+
+.sb-button.primary {
+  color: #fff;
+  background: #2962FF;
+  box-shadow: 0px 2px 3px rgba(41, 98, 255, 0.2);
+}
+
+.sb-button.primary:hover {
+  background: #0039CB;
+}
+
+.sb-button.primary.disabled {
+  color: #9E9E9E;
+  background: #0039CB;
+}
+
+.sb-button.secondary {
+  color: #fff;
+  background: #455A64;
+  box-shadow: 0px 2px 3px rgba(69, 90, 100, 0.2);
+}
+
+.sb-button.secondary:hover {
+  background: #1C313A;
+}
+
+.sb-button.secondary.disabled {
+  color: #9E9E9E;
+  background: #1C313A;
+}
+
+.sb-button.danger {
+  color: #fff;
+  background: #D32F2F;
+  box-shadow: 0px 2px 3px rgba(211, 47, 47, 0.2);
+}
+
+.sb-button.danger:hover {
+  background: #9A0007;
+}
+
+.sb-button.danger.disabled {
+  color: #9E9E9E;
+  background: #9A0007;
+}
+
+/* Button outline variant */
+
+.sb-button.outline {
+  background: transparent;
+  box-shadow: none;
+}
+
+.sb-button.default.outline,
+.sb-button.primary.outline {
+  border: 1px solid #3D5AFE;
+  color: #3D5AFE;
+}
+
+.sb-button.default.outline:hover,
+.sb-button.primary.outline:hover {
+  background: rgba(41, 98, 255, 0.102);
+}
+
+.sb-button.secondary.outline {
+  border: 1px solid #455A64;
+  color: #455A64;
+}
+
+.sb-button.secondary.outline:hover {
+  background: rgba(69, 90, 100, 0.2);
+}
+
+.sb-button.danger.outline {
+  border: 1px solid #D32F2F;
+  color: #D32F2F;
+}
+
+.sb-button.danger.outline:hover {
+  background: rgba(211, 47, 47, 0.2);
+}
+
+.sb-button.outline.disabled,
+.sb-button.outline.disabled:hover {
+  background: transparent;
+  color: #9E9E9E;
+}
+
+/* Button text variant */
+
+.sb-button.text {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.sb-button.default.text,
+.sb-button.primary.text {
+  color: #3D5AFE;
+}
+
+.sb-button.default.text:hover,
+.sb-button.primary.text:hover {
+  background: rgba(41, 98, 255, 0.102);
+}
+
+.sb-button.secondary.text {
+  color: #455A64;
+}
+
+.sb-button.secondary.text:hover {
+  background: rgba(69, 90, 100, 0.2);
+}
+
+.sb-button.danger.text {
+  color: #D32F2F;
+}
+
+.sb-button.danger.text:hover {
+  background: rgba(211, 47, 47, 0.2);
+}
+
+.sb-button.text.disabled,
+.sb-button.text.disabled:hover {
+  color: #9E9E9E;
+  background: transparent;
+}
+
+/* Button characteristics*/
+
+.sb-button.disableShadow {
+  box-shadow: none;
+}
