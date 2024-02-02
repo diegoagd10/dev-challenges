@@ -1,11 +1,30 @@
-import './App.css'
-import { Button } from './Button'
+import "./App.css";
+import { Button } from "./Button";
 
 function App() {
   return (
-    <div style={{ padding: "10px", display: "flex", flexDirection: "column", gap: "16px", alignItems: "center" }}>
-      <Button text="Default" startIcon="local_grocery_store" />
-      <Button text="Default" endIcon="local_grocery_store" />
+    <div
+      style={{
+        padding: "10px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        alignItems: "center",
+      }}
+    >
+      <Button text="Default" startIcon="add_shopping_cart" />
+      <Button text="Default" endIcon="add_shopping_cart" />
+      <Button text="Default" startIcon="home" endIcon="local_grocery_store" />
+
+      <Button text="Default" color="primary" startIcon="add_shopping_cart" />
+      <Button text="Default" color="primary" endIcon="add_shopping_cart" />
+      <Button
+        text="Default"
+        color="primary"
+        startIcon="home"
+        endIcon="local_grocery_store"
+      />
+
       <Button text="Default" size="sm" />
       <Button text="Default" size="md" />
       <Button text="Default" size="lg" />
@@ -42,7 +61,7 @@ function App() {
       <Button disabled text="Secondary" color="secondary" variant="text" />
       <Button disabled text="Danger" color="danger" variant="text" />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
