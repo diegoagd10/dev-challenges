@@ -1,4 +1,5 @@
 import { ButtonIcon } from "./ButtonIcon";
+import { classNames } from "./ClassNamesFactory";
 
 export function Button({
   text,
@@ -6,13 +7,17 @@ export function Button({
   color,
   size,
   disabled,
-  disableShadow = false,
+  disableShadow,
   startIcon,
   endIcon,
+  showHoverStyle,
 }) {
-  const className = `sb-button size-${size} ${color} ${
-    variant ? variant : ""
-  } ${disableShadow ? "disableShadow" : ""} ${disabled ? "disabled" : ""}`;
+  const className = classNames("sb-button", `size-${size}`, color, variant)
+    .addIf(disableShadow, "disableShadow")
+    .addIf(disabled, "disabled")
+    .addIf(showHoverStyle, "hover")
+    .build();
+
   return (
     <button className={className}>
       {startIcon && ButtonIcon(startIcon)}
@@ -28,4 +33,5 @@ Button.defaultProps = {
   size: "md",
   disableShadow: false,
   disabled: false,
+  showHoverStyle: false,
 };

@@ -2,12 +2,44 @@
 
 @font-face {
   font-family: "NotoSansJP";
-  src: url("./fonts/NotoSansJP-VariableFont_wght.ttf") format("truetype");
+  src: url("./fonts/NotoSansJP/NotoSansJP-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "UbuntuMono";
+  src: url("./fonts/UbuntuMono/UbuntuMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("./fonts/Montserrat/Montserrat-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./fonts/Poppins/Poppins-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 :root {
+  --sidebar-bg-color: #fafbfd;
+  --sidebar-header-home-link-color: #090f31;
+  --sidebar-header-home-link-prefix-color: #f7542e;
+  --sidebar-menu-item-color: #9e9e9e;
+  --sidebar-menu-item-active-color: #090f31;
+
+  --footer-author-color: #a9a9a9;
+  --footer-acknowledgements-color: #828282;
+
   --default-color: #3f3f3f;
   --default-bg-color: #e0e0e0;
   --default-bg-color-hover: #aeaeae;
@@ -71,6 +103,253 @@ img {
   height: auto;
 }
 
+/* Layuout */
+
+.sb-layout {
+  display: grid;
+  grid-template-areas:
+    "layout-sidebar layout-content"
+    "layout-sidebar layout-footer";
+  grid-template-columns: 237px 1fr;
+  row-gap: 52px;
+  column-gap: 95px;
+  min-height: 100vh;
+}
+
+.sb-layout-sidebar {
+  grid-area: layout-sidebar;
+  background: var(--sidebar-bg-color);
+}
+
+.sb-layout-content {
+  grid-area: layout-content;
+  padding: 53px 0 30px 0;
+  overflow: auto;
+}
+
+.sb-layout-footer {
+  grid-area: layout-footer;
+}
+
+/* SideBar */
+
+.sb-sidebar-navigation {
+  display: flex;
+  height: 100%;
+  padding-top: 38px;
+  flex-direction: column;
+  align-items: center;
+  gap: 122px;
+}
+
+.sb-sidebar-header-home-link {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--sidebar-header-home-link-color);
+  text-decoration: none;
+}
+
+.sb-sidebar-header-home-link-prefix {
+  color: var(--sidebar-header-home-link-prefix-color);
+}
+
+.sb-sidebar-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.sb-sidebar-menu-item {
+  font-family: "NotoSansJP", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--sidebar-menu-item-color);
+  text-decoration: none;
+  transition: 0.3s ease color;
+}
+
+.sb-sidebar-menu-item.active {
+  font-weight: 700;
+  color: var(--sidebar-menu-item-active-color);
+}
+
+/* Footer */
+
+.sb-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  padding-bottom: 36px;
+}
+
+.sb-footer-acknowledgements {
+  font-family: "UbuntuMono", monospace;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--footer-acknowledgements-color);
+}
+
+.sb-footer-acknowledgements a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.sb-footer-author {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--footer-author-color);
+}
+
+.sb-footer-author-link {
+  color: inherit;
+}
+
+.sb-footer-dev-io-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ComponentShowcase */
+
+.sb-component-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.sb-component-showcase-header {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+/* ComponentCard */
+
+.sb-component-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.sb-component-card-code {
+  font-family: "UbuntuMono", monospace;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+/* ButtonsShowcase */
+
+.sb-button-showcase-content {
+  display: grid;
+  grid-template-areas:
+    "button button-hover button-hover button-hover"
+    "button-outline button-outline-hover button-outline-hover button-outline-hover"
+    "button-text button-text-hover button-text-hover button-text-hover"
+    "button-disabled-shadow button-disabled-shadow button-disabled-shadow button-disabled-shadow"
+    "button-disabled button-text-disabled button-text-disabled button-text-disabled"
+    "button-start-icon button-end-icon button-end-icon button-end-icon"
+    "button-size-sm button-size-md button-size-lg button-size-lg"
+    "button-color-default button-color-primary button-color-secondary button-color-danger"
+    "button-color-default-hover button-color-primary-hover button-color-secondary-hover button-color-danger-hover";
+  grid-template-columns: repeat(4, 350px);
+  row-gap: 45px;
+  align-items: center;
+  justify-items: flex-start;
+}
+
+.sb-button-showcase-content :first-child {
+  grid-area: button;
+}
+
+.sb-button-showcase-content :nth-child(2) {
+  grid-area: button-hover;
+}
+
+.sb-button-showcase-content :nth-child(3) {
+  grid-area: button-outline;
+}
+
+.sb-button-showcase-content :nth-child(4) {
+  grid-area: button-outline-hover;
+}
+
+.sb-button-showcase-content :nth-child(5) {
+  grid-area: button-text;
+}
+
+.sb-button-showcase-content :nth-child(6) {
+  grid-area: button-text-hover;
+}
+
+.sb-button-showcase-content :nth-child(7) {
+  grid-area: button-disabled-shadow;
+}
+
+.sb-button-showcase-content :nth-child(8) {
+  grid-area: button-disabled;
+}
+
+.sb-button-showcase-content :nth-child(9) {
+  grid-area: button-text-disabled;
+}
+
+.sb-button-showcase-content :nth-child(10) {
+  grid-area: button-start-icon;
+}
+
+.sb-button-showcase-content :nth-child(11) {
+  grid-area: button-end-icon;
+}
+
+.sb-button-showcase-content :nth-child(12) {
+  grid-area: button-size-sm;
+}
+
+.sb-button-showcase-content :nth-child(13) {
+  grid-area: button-size-md;
+}
+
+.sb-button-showcase-content :nth-child(14) {
+  grid-area: button-size-lg;
+}
+
+.sb-button-showcase-content :nth-child(15) {
+  grid-area: button-color-default;
+}
+
+.sb-button-showcase-content :nth-child(16) {
+  grid-area: button-color-default-hover;
+}
+
+.sb-button-showcase-content :nth-child(17) {
+  grid-area: button-color-primary;
+}
+
+.sb-button-showcase-content :nth-child(18) {
+  grid-area: button-color-primary-hover;
+}
+
+.sb-button-showcase-content :nth-child(19) {
+  grid-area: button-color-secondary;
+}
+
+.sb-button-showcase-content :nth-child(20) {
+  grid-area: button-color-secondary-hover;
+}
+
+.sb-button-showcase-content :nth-child(21) {
+  grid-area: button-color-danger;
+}
+
+.sb-button-showcase-content :nth-child(22) {
+  grid-area: button-color-danger-hover;
+}
+
 /* Button */
 
 .sb-button {
@@ -114,6 +393,7 @@ img {
   box-shadow: 0px 2px 3px rgba(51, 51, 51, 0.2);
 }
 
+.sb-button.default.hover,
 .sb-button.default:hover,
 .sb-button.default:focus {
   background: var(--default-bg-color-hover);
@@ -130,6 +410,7 @@ img {
   box-shadow: 0px 2px 3px rgba(41, 98, 255, 0.2);
 }
 
+.sb-button.primary.hover,
 .sb-button.primary:hover,
 .sb-button.primary:focus {
   background: var(--primary-bg-color-hover);
@@ -146,6 +427,7 @@ img {
   box-shadow: 0px 2px 3px rgba(69, 90, 100, 0.2);
 }
 
+.sb-button.secondary.hover,
 .sb-button.secondary:hover,
 .sb-button.secondary:focus {
   background: var(--secondary-bg-color-hover);
@@ -162,6 +444,7 @@ img {
   box-shadow: 0px 2px 3px rgba(211, 47, 47, 0.2);
 }
 
+.sb-button.danger.hover,
 .sb-button.danger:hover,
 .sb-button.danger:focus {
   background: var(--danger-bg-color-hover);
@@ -185,6 +468,8 @@ img {
   color: var(--primary-variant-color);
 }
 
+.sb-button.default.outline.hover,
+.sb-button.primary.outline.hover,
 .sb-button.default.outline:hover,
 .sb-button.primary.outline:hover,
 .sb-button.default.outline:focus,
@@ -197,6 +482,7 @@ img {
   color: var(--secondary-bg-color);
 }
 
+.sb-button.secondary.outline.hover,
 .sb-button.secondary.outline:hover,
 .sb-button.secondary.outline:focus {
   background: rgba(69, 90, 100, 0.2);
@@ -207,6 +493,7 @@ img {
   color: var(--danger-bg-color);
 }
 
+.sb-button.danger.outline.hover,
 .sb-button.danger.outline:hover,
 .sb-button.danger.outline:focus {
   background: rgba(211, 47, 47, 0.2);
@@ -232,6 +519,8 @@ img {
   color: var(--primary-variant-color);
 }
 
+.sb-button.default.text.hover,
+.sb-button.primary.text.hover,
 .sb-button.default.text:hover,
 .sb-button.primary.text:hover,
 .sb-button.default.text:focus,
@@ -243,6 +532,7 @@ img {
   color: var(--secondary-bg-color);
 }
 
+.sb-button.secondary.text.hover,
 .sb-button.secondary.text:hover,
 .sb-button.secondary.text:focus {
   background: rgba(69, 90, 100, 0.2);
